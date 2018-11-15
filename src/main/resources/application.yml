@@ -2,8 +2,8 @@
 ### This file is in Yaml format but you can also configure spring boot using the traditional
 ### Java properties file format. 
 
-spring.jmx:
-   enabled: false
+#spring.jmx:
+#   enabled: false
 
 spring.datasource:
     driverClassName: org.h2.Driver
@@ -25,9 +25,9 @@ management:
 
 #default project info followed by actual injected pom-specified values.
 project:
-  name: spring-boot-rest-example
+  name: facebook-ws
   version: 0.1
-  description: boot-example default description
+  description: sample server for facebook webhook
 info:
   build:
     artifact: ${project.artifactId}
@@ -46,10 +46,7 @@ spring:
 
 spring.jpa:
     hibernate.ddl-auto: create-drop
-
-hotel.service:
-  name: 'test profile:'
-  
+ 
 logging:
   file: boot_example.log
   org.hibernate: INFO
