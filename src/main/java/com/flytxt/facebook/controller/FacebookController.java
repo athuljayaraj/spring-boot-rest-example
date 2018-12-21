@@ -30,10 +30,11 @@ public class FacebookController {
 	private FacebookService facebookService;
 
 	@RequestMapping(method = RequestMethod.GET, produces = { "application/json", "application/xml" })
+	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody int verify(@RequestParam("hub.mode") String mode,
-			@RequestParam("hub.challenge") String challenge, @RequestParam("hub.verify_token") String verify_token,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public int verify(@RequestParam("hub.mode") String mode, @RequestParam("hub.challenge") String challenge,
+			@RequestParam("hub.verify_token") String verify_token, HttpServletRequest request,
+			HttpServletResponse response) {
 		int hubChallenge = facebookService.register(mode, verify_token, challenge);
 		return hubChallenge;
 	}
